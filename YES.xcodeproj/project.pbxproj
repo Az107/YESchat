@@ -13,6 +13,8 @@
 		2A5B0F042A292D4100179447 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A5B0F032A292D4100179447 /* Assets.xcassets */; };
 		2A5B0F072A292D4100179447 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A5B0F062A292D4100179447 /* Preview Assets.xcassets */; };
 		2A5B0F0F2A292D9A00179447 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 2A5B0F0E2A292D9A00179447 /* SocketIO */; };
+		2AA93C752A2CC83C0094C548 /* MessageEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA93C742A2CC83C0094C548 /* MessageEngine.swift */; };
+		2AA93C772A2CF5950094C548 /* loginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA93C762A2CF5950094C548 /* loginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		2A5B0F012A292D4000179447 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2A5B0F032A292D4100179447 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A5B0F062A292D4100179447 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2AA93C742A2CC83C0094C548 /* MessageEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageEngine.swift; sourceTree = "<group>"; };
+		2AA93C762A2CF5950094C548 /* loginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				2A1144FA2A2AAD0A0006961F /* EncriptDetector 1.mlmodel */,
 				2A5B0F032A292D4100179447 /* Assets.xcassets */,
 				2A5B0F052A292D4100179447 /* Preview Content */,
+				2AA93C742A2CC83C0094C548 /* MessageEngine.swift */,
+				2AA93C762A2CF5950094C548 /* loginView.swift */,
 			);
 			path = YES;
 			sourceTree = "<group>";
@@ -149,6 +155,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A5B0F022A292D4000179447 /* ContentView.swift in Sources */,
+				2AA93C752A2CC83C0094C548 /* MessageEngine.swift in Sources */,
+				2AA93C772A2CF5950094C548 /* loginView.swift in Sources */,
 				2A1144FB2A2AAD0A0006961F /* EncriptDetector 1.mlmodel in Sources */,
 				2A5B0F002A292D4000179447 /* YESApp.swift in Sources */,
 			);
