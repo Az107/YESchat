@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SocketIO
+import CoreML
 
 struct Message: Identifiable {
     let sender: String
@@ -14,20 +15,50 @@ struct Message: Identifiable {
     let id = UUID()
 }
 
+func encryptString(_ str: String, key: Int) -> String {
+    var encrypted = ""
+    for char in str {
+        let charCode = char.asciiValue! + UInt8(key)
+        let encryptedChar = String(UnicodeScalar(charCode))
+        encrypted += encryptedChar
+    }
+    return encrypted
+}
+
+
 struct ContentView: View {
     @State var messageInput = "";
     @State var messages: [Message] = [];
     @State var user: String = "YO#0001";
     var connected: Bool = true;
-    let manager = SocketManager(socketURL: URL(string: "http://localhost:5001")!, config: [.log(true), .compress])
+    let manager = SocketManager(socketURL: URL(string: "http://localhost:5001")!, config: [.log(false), .compress])
     let socket : SocketIOClient
+    let encryptDetectorModel: EncriptDetector_1
     
     
     init() {
         self.socket = self.manager.defaultSocket
         self.socket.connect()
         print(self.manager.status)
+
+        self.encryptDetectorModel = {
+            do {
+                let mlConfig = MLModelConfiguration()
+                return try EncriptDetector_1(configuration: mlConfig)
+            } catch {
+                print("error")
+                fatalError("could not start EncriptDetector")
+            }
+      
+        }()
+
+        let result = try? self.encryptDetectorModel.prediction(text: "M[]_adJËpJJJJJJK")
+        if (result != nil) { print(result!.label)}
         
+      
+
+        
+ 
     }
     
     var body: some View {
