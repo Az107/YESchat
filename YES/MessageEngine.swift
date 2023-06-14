@@ -20,10 +20,12 @@ func idGenerator() -> String {
     return String(format: "%04d", randomNumber)
 }
 
+let url = UserDefaults.standard.string(forKey: "url_preference") ?? "http://localhost:5001"
+
 class MessageEngine: ObservableObject {
     @Published var messages: [Message] = [];
     @Published var user: String;
-    let manager = SocketManager(socketURL: URL(string: "http://localhost:5001")!, config: [.log(false), .compress])
+    let manager = SocketManager(socketURL: URL(string: url)!, config: [.log(false), .compress])
     let socket : SocketIOClient
     let encryptDetectorModel: EncriptDetector_1
     
@@ -59,7 +61,6 @@ class MessageEngine: ObservableObject {
         self.socket = self.manager.defaultSocket
         self.socket.connect()
         print(self.manager.status)
-
         self.encryptDetectorModel = {
             do {
                 let mlConfig = MLModelConfiguration()
@@ -70,7 +71,16 @@ class MessageEngine: ObservableObject {
             }
       
         }()
-
+        let url = UserDefaults.standard.string(forKey: "url_preference")
+        print("url:" + (url ?? "error"))
+        
+        self.socket.on(clientEvent: .connect) {[weak self] _,_ in
+            guard let self = self else {
+                return
+            }
+            print("Login as " + userName)
+            self.socket.emit("new user", userName)
+        }
 
         self.socket.on("chat message") {[weak self] data,ack in
             guard let self = self else {

@@ -12,8 +12,8 @@ struct loginView: View {
     var body: some View {
         VStack {
             TextField("username" ,text: $usernameInput)
-            Button("OK") {
-                
+            NavigationLink(destination: ChatView(username: usernameInput)) {
+                Text("Login")
             }
         }.padding()
     }

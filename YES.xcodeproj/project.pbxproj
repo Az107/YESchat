@@ -9,23 +9,28 @@
 /* Begin PBXBuildFile section */
 		2A1144FB2A2AAD0A0006961F /* EncriptDetector 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 2A1144FA2A2AAD0A0006961F /* EncriptDetector 1.mlmodel */; };
 		2A5B0F002A292D4000179447 /* YESApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5B0EFF2A292D4000179447 /* YESApp.swift */; };
-		2A5B0F022A292D4000179447 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5B0F012A292D4000179447 /* ContentView.swift */; };
+		2A5B0F022A292D4000179447 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5B0F012A292D4000179447 /* ChatView.swift */; };
 		2A5B0F042A292D4100179447 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A5B0F032A292D4100179447 /* Assets.xcassets */; };
 		2A5B0F072A292D4100179447 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A5B0F062A292D4100179447 /* Preview Assets.xcassets */; };
 		2A5B0F0F2A292D9A00179447 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 2A5B0F0E2A292D9A00179447 /* SocketIO */; };
 		2AA93C752A2CC83C0094C548 /* MessageEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA93C742A2CC83C0094C548 /* MessageEngine.swift */; };
-		2AA93C772A2CF5950094C548 /* loginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA93C762A2CF5950094C548 /* loginView.swift */; };
+		2AA93C772A2CF5950094C548 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA93C762A2CF5950094C548 /* LoginView.swift */; };
+		2AE008F12A39BD8E0099142F /* MessageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE008F02A39BD8E0099142F /* MessageComponent.swift */; };
+		2AE008F42A39CBAF0099142F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2AE008F32A39CBAF0099142F /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2A1144FA2A2AAD0A0006961F /* EncriptDetector 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "EncriptDetector 1.mlmodel"; sourceTree = "<group>"; };
 		2A5B0EFC2A292D4000179447 /* YES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A5B0EFF2A292D4000179447 /* YESApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YESApp.swift; sourceTree = "<group>"; };
-		2A5B0F012A292D4000179447 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2A5B0F012A292D4000179447 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		2A5B0F032A292D4100179447 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A5B0F062A292D4100179447 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2AA93C742A2CC83C0094C548 /* MessageEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageEngine.swift; sourceTree = "<group>"; };
-		2AA93C762A2CF5950094C548 /* loginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginView.swift; sourceTree = "<group>"; };
+		2AA93C762A2CF5950094C548 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		2AE008F02A39BD8E0099142F /* MessageComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageComponent.swift; sourceTree = "<group>"; };
+		2AE008F22A39CB4C0099142F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2AE008F32A39CBAF0099142F /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,13 +64,14 @@
 		2A5B0EFE2A292D4000179447 /* YES */ = {
 			isa = PBXGroup;
 			children = (
+				2AE008F32A39CBAF0099142F /* Settings.bundle */,
+				2AE008F22A39CB4C0099142F /* Info.plist */,
 				2A5B0EFF2A292D4000179447 /* YESApp.swift */,
-				2A5B0F012A292D4000179447 /* ContentView.swift */,
+				2AE008EF2A39B2B50099142F /* Views */,
 				2A1144FA2A2AAD0A0006961F /* EncriptDetector 1.mlmodel */,
 				2A5B0F032A292D4100179447 /* Assets.xcassets */,
 				2A5B0F052A292D4100179447 /* Preview Content */,
 				2AA93C742A2CC83C0094C548 /* MessageEngine.swift */,
-				2AA93C762A2CF5950094C548 /* loginView.swift */,
 			);
 			path = YES;
 			sourceTree = "<group>";
@@ -76,6 +82,16 @@
 				2A5B0F062A292D4100179447 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2AE008EF2A39B2B50099142F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2A5B0F012A292D4000179447 /* ChatView.swift */,
+				2AA93C762A2CF5950094C548 /* LoginView.swift */,
+				2AE008F02A39BD8E0099142F /* MessageComponent.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A5B0F072A292D4100179447 /* Preview Assets.xcassets in Resources */,
+				2AE008F42A39CBAF0099142F /* Settings.bundle in Resources */,
 				2A5B0F042A292D4100179447 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,9 +171,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A5B0F022A292D4000179447 /* ContentView.swift in Sources */,
+				2A5B0F022A292D4000179447 /* ChatView.swift in Sources */,
 				2AA93C752A2CC83C0094C548 /* MessageEngine.swift in Sources */,
-				2AA93C772A2CF5950094C548 /* loginView.swift in Sources */,
+				2AA93C772A2CF5950094C548 /* LoginView.swift in Sources */,
+				2AE008F12A39BD8E0099142F /* MessageComponent.swift in Sources */,
 				2A1144FB2A2AAD0A0006961F /* EncriptDetector 1.mlmodel in Sources */,
 				2A5B0F002A292D4000179447 /* YESApp.swift in Sources */,
 			);
@@ -290,6 +308,7 @@
 				DEVELOPMENT_TEAM = 25QCDA8SYY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = YES/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -319,6 +338,7 @@
 				DEVELOPMENT_TEAM = 25QCDA8SYY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = YES/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
