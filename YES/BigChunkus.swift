@@ -12,13 +12,19 @@ struct Chunk {
     var sender: String
     var name: String
     var index: Int
-    var total: Double
+    var total: Int
     var chunk: Data
     
 }
 
 struct fileMessage {
     
+}
+
+enum BigChunkusError: Error {
+    case fileIsEmpty
+    case DataInconsistency
+    case unmachingChunkSize
 }
 
 class BigChunkus {
@@ -29,12 +35,30 @@ class BigChunkus {
         self.chunks = []
     }
     
-    func chunkerize(file: Data, fileName: String, sender: String) -> [Chunk] {
+    func addChunk(chunk: Chunk) throws -> Bool {
+        if (chunk.chunk.count != chunkSize && chunk.index != chunk.total ) {throw BigChunkusError.unmachingChunkSize}
+        if (chunks.isEmpty) {
+            if (chunk.index != 0) {throw BigChunkusError.DataInconsistency}
+            chunks.append(chunk)
+        } else {
+            if chunk.name == chunks.last?.name,
+               chunk.index + 1 == chunks.last?.index,
+               chunk.total == chunks.last?.total
+            {
+                chunks.append(chunk)
+            } else {
+                throw BigChunkusError.DataInconsistency
+            }
+        }
+        return chunks.count == chunk.total
+    }
+    
+    static func chunkerize(file: Data, fileName: String, sender: String, chunkSize: Int = 1024 * 1024) throws -> [Chunk] {
         var chunks: [Chunk] = []
-        if (file.isEmpty) {return []} // TODO: replace with exception
+        if (file.isEmpty) {throw BigChunkusError.fileIsEmpty} // TODO: replace with exception
         var offset = 0
         var index = 0
-        let total = ceil(Double(file.count/self.chunkSize))
+        let total = ceil(Double(file.count/chunkSize))
         
         while (offset < file.count - 1){
             var newOffset = offset+chunkSize
@@ -43,7 +67,7 @@ class BigChunkus {
                 sender: sender,
                 name: fileName,
                 index: index,
-                total: total,
+                total: Int(total),
                 chunk: file.subdata(in: Range(offset...newOffset)))
             )
             offset = newOffset

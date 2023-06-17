@@ -9,13 +9,22 @@ import XCTest
 @testable import YES
 final class YESTests: XCTestCase {
 
-    let bigChunkus: BigChunkus = BigChunkus()
-    func testExample() throws {
+    func testChunkerize() throws {
         let url = Bundle.main.path(forResource: "photo", ofType: "jpeg")
         let data = FileManager.default.contents(atPath: url!)!
-        let chunks = bigChunkus.chunkerize(file: data, fileName: "", sender: "Placeholder")
+        let chunks = try BigChunkus.chunkerize(file: data, fileName: "", sender: "Placeholder")
         assert(chunks.count != 0)
         
+    }
+    
+    func testAddChunk() throws {
+        let url = Bundle.main.path(forResource: "photo", ofType: "jpeg")
+        let data = FileManager.default.contents(atPath: url!)!
+        let chunks = try BigChunkus.chunkerize(file: data, fileName: "", sender: "Placeholder")
+        let bigChunkus = BigChunkus()
+        XCTAssertNoThrow(try bigChunkus.addChunk(chunk: chunks.first!))
+        assert(!bigChunkus.chunks.isEmpty)
+        assert(bigChunkus.chunks.last?.chunk.count == chunks.first!.chunk.count)
     }
 
 }
