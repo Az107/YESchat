@@ -26,5 +26,18 @@ final class YESTests: XCTestCase {
         assert(!bigChunkus.chunks.isEmpty)
         assert(bigChunkus.chunks.last?.chunk.count == chunks.first!.chunk.count)
     }
+    
+    func testUnchunkerize() throws {
+        let url = Bundle.main.path(forResource: "photo", ofType: "jpeg")
+        let data = FileManager.default.contents(atPath: url!)!
+        let chunks = try BigChunkus.chunkerize(file: data, fileName: "", sender: "Placeholder")
+        let bigChunkus = BigChunkus()
+        XCTAssertNoThrow(try bigChunkus.addChunk(chunk: chunks.first!))
+        let fileData = try bigChunkus.unChunkerize()
+        assert(fileData.file == data);
+
+        
+
+    }
 
 }

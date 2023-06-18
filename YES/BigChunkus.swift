@@ -17,7 +17,10 @@ struct Chunk {
     
 }
 
-struct fileMessage {
+struct FileMessage {
+    var sender: String
+    var name: String
+    var file: Data
     
 }
 
@@ -77,7 +80,17 @@ class BigChunkus {
         return chunks
     }
     
-    func unChunkerize(){
-        
+    func unChunkerize() throws -> FileMessage {
+        if (chunks.isEmpty || chunks.last?.index != chunks.last?.total) {throw BigChunkusError.DataInconsistency}
+        var data = Data()
+        for  chunk in chunks {
+            data.append(chunk.chunk)
+        }
+        let fileMessage = FileMessage(
+            sender: chunks.last!.sender,
+            name: chunks.last!.name,
+            file: data
+        )
+        return fileMessage
     }
 }
