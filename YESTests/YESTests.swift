@@ -8,9 +8,9 @@
 import XCTest
 @testable import YES
 final class YESTests: XCTestCase {
-
+    let url = Bundle.main.path(forResource: "perrina", ofType: "jpeg")
+    
     func testChunkerize() throws {
-        let url = Bundle.main.path(forResource: "photo", ofType: "jpeg")
         let data = FileManager.default.contents(atPath: url!)!
         let chunks = try BigChunkus.chunkerize(file: data, fileName: "", sender: "Placeholder")
         assert(chunks.count != 0)
@@ -18,7 +18,6 @@ final class YESTests: XCTestCase {
     }
     
     func testAddChunk() throws {
-        let url = Bundle.main.path(forResource: "photo", ofType: "jpeg")
         let data = FileManager.default.contents(atPath: url!)!
         let chunks = try BigChunkus.chunkerize(file: data, fileName: "", sender: "Placeholder")
         let bigChunkus = BigChunkus()
@@ -28,15 +27,12 @@ final class YESTests: XCTestCase {
     }
     
     func testUnchunkerize() throws {
-        let url = Bundle.main.path(forResource: "photo", ofType: "jpeg")
         let data = FileManager.default.contents(atPath: url!)!
         let chunks = try BigChunkus.chunkerize(file: data, fileName: "", sender: "Placeholder")
         let bigChunkus = BigChunkus()
         XCTAssertNoThrow(try bigChunkus.addChunk(chunk: chunks.first!))
         let fileData = try bigChunkus.unChunkerize()
-        assert(fileData.file == data);
-
-        
+        assert(fileData.file == data)
 
     }
 

@@ -7,19 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A04FA442A3EFC990038CEA6 /* perrina.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2A04FA432A3EFC990038CEA6 /* perrina.jpeg */; };
+		2A04FA452A3EFC990038CEA6 /* perrina.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2A04FA432A3EFC990038CEA6 /* perrina.jpeg */; };
+		2A04FA462A3EFE0A0038CEA6 /* YESTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE009022A39ED850099142F /* YESTests.swift */; };
 		2A1144FB2A2AAD0A0006961F /* EncriptDetector 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 2A1144FA2A2AAD0A0006961F /* EncriptDetector 1.mlmodel */; };
 		2A5B0F002A292D4000179447 /* YESApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5B0EFF2A292D4000179447 /* YESApp.swift */; };
 		2A5B0F022A292D4000179447 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5B0F012A292D4000179447 /* ChatView.swift */; };
 		2A5B0F042A292D4100179447 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A5B0F032A292D4100179447 /* Assets.xcassets */; };
 		2A5B0F072A292D4100179447 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A5B0F062A292D4100179447 /* Preview Assets.xcassets */; };
 		2A5B0F0F2A292D9A00179447 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 2A5B0F0E2A292D9A00179447 /* SocketIO */; };
-		2A9C91912A3E6E62000A67ED /* photo.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2A9C91902A3E6E62000A67ED /* photo.jpeg */; };
 		2AA93C752A2CC83C0094C548 /* MessageEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA93C742A2CC83C0094C548 /* MessageEngine.swift */; };
 		2AA93C772A2CF5950094C548 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA93C762A2CF5950094C548 /* LoginView.swift */; };
 		2AE008F12A39BD8E0099142F /* MessageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE008F02A39BD8E0099142F /* MessageComponent.swift */; };
 		2AE008F42A39CBAF0099142F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2AE008F32A39CBAF0099142F /* Settings.bundle */; };
 		2AE008F62A39E4E40099142F /* BigChunkus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE008F52A39E4E40099142F /* BigChunkus.swift */; };
-		2AE009032A39ED850099142F /* YESTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE009022A39ED850099142F /* YESTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,13 +34,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A04FA432A3EFC990038CEA6 /* perrina.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = perrina.jpeg; sourceTree = "<group>"; };
 		2A1144FA2A2AAD0A0006961F /* EncriptDetector 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "EncriptDetector 1.mlmodel"; sourceTree = "<group>"; };
 		2A5B0EFC2A292D4000179447 /* YES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A5B0EFF2A292D4000179447 /* YESApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YESApp.swift; sourceTree = "<group>"; };
 		2A5B0F012A292D4000179447 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		2A5B0F032A292D4100179447 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A5B0F062A292D4100179447 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		2A9C91902A3E6E62000A67ED /* photo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo.jpeg; sourceTree = "<group>"; };
 		2AA93C742A2CC83C0094C548 /* MessageEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageEngine.swift; sourceTree = "<group>"; };
 		2AA93C762A2CF5950094C548 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2AE008F02A39BD8E0099142F /* MessageComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageComponent.swift; sourceTree = "<group>"; };
@@ -124,7 +125,7 @@
 		2AE009012A39ED850099142F /* YESTests */ = {
 			isa = PBXGroup;
 			children = (
-				2A9C91902A3E6E62000A67ED /* photo.jpeg */,
+				2A04FA432A3EFC990038CEA6 /* perrina.jpeg */,
 				2AE009022A39ED850099142F /* YESTests.swift */,
 			);
 			path = YESTests;
@@ -218,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A5B0F072A292D4100179447 /* Preview Assets.xcassets in Resources */,
+				2A04FA442A3EFC990038CEA6 /* perrina.jpeg in Resources */,
 				2AE008F42A39CBAF0099142F /* Settings.bundle in Resources */,
 				2A5B0F042A292D4100179447 /* Assets.xcassets in Resources */,
 			);
@@ -227,7 +229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A9C91912A3E6E62000A67ED /* photo.jpeg in Resources */,
+				2A04FA452A3EFC990038CEA6 /* perrina.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AE009032A39ED850099142F /* YESTests.swift in Sources */,
+				2A04FA462A3EFE0A0038CEA6 /* YESTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +303,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -361,6 +364,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
