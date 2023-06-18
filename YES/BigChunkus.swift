@@ -64,7 +64,10 @@ class BigChunkus {
     }
     
     func addChunk(chunk: Chunk) throws -> Bool {
-        if (chunk.chunk.count != chunkSize && chunk.index != chunk.total ) {throw BigChunkusError.unmachingChunkSize}
+//        if (chunk.chunk.count != chunkSize && chunk.index != chunk.total - 1 ) {
+//            throw BigChunkusError.unmachingChunkSize
+//            
+//        }
         if (chunks.isEmpty) {
             if (chunk.index != 0) {throw BigChunkusError.DataInconsistency}
             chunks.append(chunk)
@@ -83,7 +86,7 @@ class BigChunkus {
     
     static func chunkerize(file: Data, fileName: String, sender: String, chunkSize: Int = 1024 * 1024) throws -> [Chunk] {
         var chunks: [Chunk] = []
-        if (file.isEmpty) {throw BigChunkusError.fileIsEmpty} // TODO: replace with exception
+        if (file.isEmpty) {throw BigChunkusError.fileIsEmpty}
         var offset = 0
         var index = 0
         let total = ceil(Double(file.count/chunkSize))
@@ -105,17 +108,21 @@ class BigChunkus {
         return chunks
     }
     
-    func unChunkerize() throws -> FileMessage {
-        if (chunks.isEmpty || chunks.last?.index != chunks.last?.total) {throw BigChunkusError.DataInconsistency}
+    func unChunkerize() throws -> Message {
+        if (chunks.isEmpty || chunks.last!.index != chunks.last!.total - 1) {
+            throw BigChunkusError.DataInconsistency
+            
+        }
         var data = Data()
         for  chunk in chunks {
             data.append(chunk.chunk)
         }
-        let fileMessage = FileMessage(
+        let message = Message(
             sender: chunks.last!.sender,
-            name: chunks.last!.name,
+            content: chunks.last!.name,
             file: data
         )
-        return fileMessage
+        self.clear()
+        return message
     }
 }

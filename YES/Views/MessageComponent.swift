@@ -18,12 +18,19 @@ struct MessageComponent: View {
     }
     var body: some View {
         HStack {
-            if (isOwn || isSystem ) {Spacer()}
-            Text(message.content)
-                .padding()
-                .background(isOwn ? Color.blue : isSystem ? Color.white : Color.gray)
-                .foregroundColor(isSystem ? Color.black : Color.white)
-                .cornerRadius(10)
+            if ( isOwn || isSystem ) {Spacer()}
+            if (message.file == nil) {
+                Text(message.content)
+                    .padding()
+                    .background(isOwn ? Color.blue : isSystem ? Color.white : Color.gray)
+                    .foregroundColor(isSystem ? Color.black : Color.white)
+                    .cornerRadius(10)
+            } else {
+                Image(systemName: "doc")
+                    .imageScale(.large)
+                    .foregroundColor(.accentColor)
+            }
+
             if (!isOwn || isSystem ) {Spacer()}
         }.id(message.id)
     }

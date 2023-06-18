@@ -9,10 +9,22 @@ import Foundation
 import SocketIO
 import CoreML
 
-struct Message: Identifiable, Equatable {
+ struct Message: Identifiable, Equatable {
     let sender: String
     let content: String
+    var file: Data? = nil
     let id = UUID()
+    
+    init(sender: String,content: String) {
+        self.sender = sender
+        self.content = content
+    }
+    
+    init(sender: String, content: String, file: Data) {
+        self.sender = sender
+        self.file = file
+        self.content = content
+    }
 }
 
 func idGenerator() -> String {
@@ -27,6 +39,7 @@ class MessageEngine: ObservableObject {
     @Published var user: String;
     let manager = SocketManager(socketURL: URL(string: url)!, config: [.log(false), .compress])
     let socket : SocketIOClient
+    var bigChunkus = BigChunkus()
     let encryptDetectorModel: EncriptDetector_1
     
     func encryptString(_ str: String, key: Int) -> String {
@@ -102,6 +115,35 @@ class MessageEngine: ObservableObject {
                 self.messages.append(Message(sender: String(msgData[0]), content: String(msgData[1])))
             }
 
+        }
+        
+        self.socket.on("broadcast adjunt") {[weak self] data,ack in
+            guard let self = self else {
+                return
+            }
+            let chunkData = data[0] as? [String: Any] ?? [:]
+            if  let sender = chunkData["sender"] as? String,
+                let name = chunkData["name"] as? String,
+                let index = chunkData["index"] as? Int,
+                let total = chunkData["total"] as? Int,
+                let data = chunkData["chunk"] as? Data
+            {
+                let chunk = Chunk(sender: sender, name: name, index: index, total: total, chunk: data)
+
+                let complete = try? self.bigChunkus.addChunk(chunk: chunk)
+                    
+                if (complete ?? false) {
+                    let message = try? self.bigChunkus.unChunkerize()
+                    if ( message != nil ) {
+                        self.messages.append(message!)
+                    } else {
+                        self.bigChunkus.clear()
+                    }
+                }
+            } else {
+                    print("Data not valid")
+            }
+        
         }
 
     }

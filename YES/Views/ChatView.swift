@@ -61,6 +61,7 @@ struct ChatView: View {
             
                   
                 Button {
+                    if (messageInput.isEmpty) { return }
                     messageEngine.send(messageInput, sender: messageEngine.user)
                     messageInput = "";
                 } label: {
