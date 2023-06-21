@@ -26,9 +26,15 @@ struct MessageComponent: View {
                     .foregroundColor(isSystem ? Color.black : Color.white)
                     .cornerRadius(10)
             } else {
-                Image(systemName: "doc")
-                    .imageScale(.large)
-                    .foregroundColor(.accentColor)
+                HStack{
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "doc.fill")
+                            .imageScale(.large).foregroundColor(.white)
+                    }
+                    Text(message.content).foregroundColor(.white)
+                }.background(isOwn ? Color.blue : isSystem ? Color.white : Color.gray) .cornerRadius(10)
             }
 
             if (!isOwn || isSystem ) {Spacer()}
@@ -38,6 +44,11 @@ struct MessageComponent: View {
 
 struct MessageComponent_Previews: PreviewProvider {
     static var previews: some View {
-        MessageComponent(Message(sender: "a", content: "Placeholder"), isOwn: false)
+        VStack {
+            MessageComponent(Message(sender: "a", content: "Placeholder"), isOwn: false);
+            MessageComponent(Message(sender: "a", content: "Placeholder"), isOwn: true)
+            MessageComponent(Message(sender: "a", content: "Placeholder", file: Data()), isOwn: false);
+            MessageComponent(Message(sender: "a", content: "Placeholder",file: Data()), isOwn: true)
+        }
     }
 }
