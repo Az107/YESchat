@@ -11,11 +11,24 @@ struct loginView: View {
     @State var usernameInput = "";
     var body: some View {
         VStack {
-            TextField("username" ,text: $usernameInput)
-            NavigationLink(destination: ChatView(username: usernameInput)) {
-                Text("Login")
-            }
-        }.padding()
+            VStack {
+                Spacer()
+                Image("SI_chat").resizable().frame(width: 100, height: 100).cornerRadius(10)
+                Text("SI chat").font(.largeTitle).bold().foregroundColor(.white)
+                Spacer()
+                HStack{
+                    TextField("username" ,text: $usernameInput).textFieldStyle(.roundedBorder)
+                    Button {
+                        //ChatView(username: usernameInput)
+                    } label: {
+                        Text("Login")
+                    }.buttonStyle(.borderedProminent)
+                }.padding().background(.white)
+            }.background(.ultraThinMaterial)
+        }.background(
+            Image("california1")
+        )
+        
     }
 }
 
